@@ -4,7 +4,7 @@ const axios = require('axios');
 const server = http.createServer(async (req, res) => {
   if (req.method === 'GET' && req.url === '/test') {
     try {
-      const response = await axios.get("http://4.248.152.87/test", { responseType: 'arraybuffer' });
+      const response = await axios.get("http://4.248.152.87/solPrice", { responseType: 'arraybuffer' });
       const imageBuffer = Buffer.from(response.data); // Create a buffer from the response data
       res.writeHead(200, { 'Content-Type': 'image/png' }); // Set the appropriate content type
       res.end(imageBuffer); // Send the image buffer as the response
@@ -20,5 +20,5 @@ const server = http.createServer(async (req, res) => {
 
 const port = 3000;
 server.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}/test`);
+  console.log(`Server is running on http://localhost:${port}/solPrice`);
 });
