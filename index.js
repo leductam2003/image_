@@ -2,7 +2,7 @@ const http = require('http');
 const axios = require('axios');
 
 const server = http.createServer(async (req, res) => {
-  if (req.method === 'GET' && req.url === '/test') {
+  if (req.method === 'GET' && req.url === '/solPrice') {
     try {
       const response = await axios.get("http://4.248.152.87/solPrice", { responseType: 'arraybuffer' });
       const imageBuffer = Buffer.from(response.data); // Create a buffer from the response data
